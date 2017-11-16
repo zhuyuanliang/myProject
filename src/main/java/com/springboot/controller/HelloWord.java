@@ -15,7 +15,7 @@ import javax.annotation.Resource;
 public class HelloWord {
     @Resource
     private Student student;
-    @RequestMapping(value = "/hello",method = RequestMethod.GET)
+    @RequestMapping(value = {"/hello","/hi"},method = RequestMethod.GET)
     public String sayHello(){
         return student.getAge();
     }
