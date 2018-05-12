@@ -19,4 +19,9 @@ public class HelloWord {
     public String sayHello(){
         return student.getAge();
     }
+
+    @RequestMapping(value = {"/getStudent"},method = RequestMethod.GET)
+    public Student getStudent(){
+        return student;
+    }
 }
