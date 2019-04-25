@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.springboot.mappers.UserMapper">
+
+    <delete id="deleteByPrimaryKey">
+        DELETE
+        FROM user
+        WHERE user_id = #{userId}
+    </delete>
+
+    <insert id="insertSelective">
+        INSERT INTO user (
+          user_name, user_phone, user_address
+        )
+        VALUES
+          (
+            #{userName}, #{userPhone}, #{userAddress}
+          )
+    </insert>
+
+    <resultMap id="selectByPrimaryKeyMap" type="com.project.springboot.model.User">
+        <result column="user_id" property="userId"/>
+        <result column="user_name" property="userName"/>
+        <result column="user_phone" property="userPhone"/>
+        <result column="user_address" property="userAddress"/>
+    </resultMap>
+    <select id="selectByPrimaryKey" parameterType="int" resultMap="selectByPrimaryKeyMap">
+      select *
+      from user
+      where user_id = #{userId}
+    </select>
+
+</mapper>

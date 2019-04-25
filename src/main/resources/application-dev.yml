@@ -1,7 +1,0 @@
-server:
-  port: 8081
-  context-path: /springBoot
-
-Student:
-  name: zhuyuanliang
-  age: 100
